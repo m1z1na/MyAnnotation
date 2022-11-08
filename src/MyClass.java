@@ -18,7 +18,7 @@ public class MyClass implements InvocationHandler {
             return method.invoke(myLovely, args);
         }
         long time = System.currentTimeMillis();
-        Object returnObj = method.invoke(myLovely, args);//вызывает сам себя
+        Object returnObj = method.invoke(myLovely, args);
         System.out.println( ((System.currentTimeMillis() - time) / 60) );
 
         return returnObj;
