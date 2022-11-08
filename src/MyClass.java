@@ -5,19 +5,21 @@ import java.time.Instant;
 
 public class MyClass implements InvocationHandler {
 
-    private MyLovelyImpl examples = new MyLovelyImpl();
-    private static class MyLovelyImpl implements MyInterface {
+    private class MyLovelyImpl implements MyInterface {
     }
+
+    private MyLovelyImpl myLovely = new MyLovelyImpl();
+
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         if (!method.isAnnotationPresent(MyLovelyProfiler.class)) {
-            return method.invoke(examples, args);
+            return method.invoke(myLovely, args);
         }
         long time = System.currentTimeMillis();
-        Object returnObj = method.invoke(examples, args);//вызывает сам себя
-        System.out.println("Время работы сотавило: " + ((System.currentTimeMillis() - time) / 60) + " ");
+        Object returnObj = method.invoke(myLovely, args);//вызывает сам себя
+        System.out.println( ((System.currentTimeMillis() - time) / 60) );
 
         return returnObj;
     }

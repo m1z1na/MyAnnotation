@@ -8,6 +8,7 @@ public interface MyInterface {
             e.printStackTrace();
         }
         System.out.println( "Ты завершил " + text );
+        System.out.println( "Время работы сотавило: " );
     }
 
     @MyLovelyProfiler
@@ -19,5 +20,6 @@ public interface MyInterface {
             e.printStackTrace();
         }
         System.out.println( "Ты завершил " + text );
+        System.out.println( "Время работы сотавило: " );
     }
 }
